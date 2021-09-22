@@ -5,6 +5,8 @@ let currentPage = '';
 
 let containers = {};
 
+let cart = [];
+
 let templates = [
 	{
 		name: 'home',
@@ -12,8 +14,7 @@ let templates = [
 			`<div id="home">` +
 			`<div id="categories">` +
 			`<p><b>Categorias</b></p>` +
-			`<ul type="none">` +
-			`<li><a>teste</a></li>` +
+			`<ul id="categoriesList" type="none">` +
 			`</ul></div>` +
 			`<div id="productsPanel">` +
 			`</div></div>`,
@@ -29,14 +30,6 @@ let templates = [
 	{
 		name: 'itemDetail',
 		template: ``,
-	},
-];
-
-let events = [
-	{
-		type: 'keydown',
-		input: 'search',
-		function: filterByNameDescription,
 	},
 ];
 
@@ -70,9 +63,20 @@ function generateProductsPanel() {
 function generateCategoryOptions() {
 	let html = '';
 	for (const category of categories) {
-		html += `<li><a onClick="">${category}</a></li>`;
+		html += `<li><a onClick="filterByCategory('${category}')">${category}</a></li>`;
 	}
-	//generate category panel
+	injectTemplate(html, containers.categoriesList)
+}
+
+function filterByCategory(category){
+	currentProducts = [];
+	currentProducts = products.filter(
+		(product) =>
+			product.category.toLowerCase().includes(category)
+	);
+	currentProducts = !currentProducts.length ? products : currentProducts
+	if (currentPage != 'home') loadPage('home');
+	else getPropertie('home-products', dinamicTemplates).generate();
 }
 
 // ------- PAGES -------- //
@@ -99,10 +103,18 @@ const pages = [
 function loadHomePage(options) {
 	currentPage = 'home';
 	const home = getPropertie('home', templates);
+	
 	injectTemplate(home.template, containers.content);
+	
 	const productsPanel = getPropertie('home-products', dinamicTemplates);
+	const categoriesList = getPropertie('home-categories', dinamicTemplates)
+	
 	currentProducts = products.map((item) => item);
+
 	containers.productsPanel = getElement('#productsPanel');
+	containers.categoriesList = getElement('#categoriesList');
+	
+	categoriesList.generate();
 	productsPanel.generate();
 }
 
@@ -182,17 +194,26 @@ const products = [
 
 let currentProducts = [];
 
-const categories = ['love', 'fantasy', 'kit', 'medieval', 'cute'];
+const categories = ['todos','love', 'fantasy', 'kit', 'medieval', 'cute'];
 
 // ------ LISTENER FUNCTIONS --------//
+
+let events = [
+	{
+		type: 'keyup',
+		input: 'search',
+		function: filterByNameDescription,
+	},
+];
 
 function filterByNameDescription(event) {
 	currentProducts = [];
 	currentProducts = products.filter(
 		(product) =>
-			product.name.includes(event.target.value) ||
-			product.description.includes(event.target.value)
+			product.name.toLowerCase().includes(event.target.value.toLowerCase()) ||
+			product.description.toLowerCase().includes(event.target.value.toLowerCase())
 	);
+	currentProducts = !currentProducts.length ? products : currentProducts
 	if (currentPage != 'home') loadPage('home');
 	else getPropertie('home-products', dinamicTemplates).generate();
 }
@@ -219,7 +240,7 @@ function injectTemplate(template, element) {
 	element.innerHTML = template;
 }
 
-function startEventListeners(page) {
+function startEventListeners() {
 	events.map((event) => {
 		inputs[event.input].addEventListener(event.type, event.function);
 	});
@@ -233,4 +254,5 @@ function init() {
 }
 
 // ------ FUNCTION CALL --------//
-init();
+
+// init();
