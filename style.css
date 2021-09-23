@@ -115,7 +115,7 @@ footer a {
 
 #itemDetail {
 	width: 100%;
-	height: 540px;
+	height: 600px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -139,8 +139,82 @@ footer a {
 }
 #itemDetail .itemDetailPanel .detail .addToCartButton {
 	padding: 6px;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    background-color: #ca895f;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	background-color: #ca895f;
+}
+
+#cart {
+	width: 100%;
+	height: 600px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#cart .cartProductsPanel {
+	width: 65%;
+	height: 550px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 0px 8px 0px #000000bd;
+}
+#cart .cartProductsPanel #products {
+	width: 100%;
+	height: 500px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#cart .cartProductsPanel #products .product {
+	width: 95%;
+	height: 120px;
+	padding: 10px;
+	display: flex;
+	margin-bottom: 15px;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #d5d5d5;
+	box-shadow: 0px 0px 8px 0px #000000bd;
+}
+#cart .cartProductsPanel #products .product .removeButton {
+	background-color: red;
+	color: white;
+	padding: 12px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+#cart .cartProductsPanel #products .product a img {
+	height: 90px;
+	width: 140px;
+	border: 1px solid black;
+	margin-left: 10px;
+}
+#cart .cartProductsPanel #products .product .description {
+	width: 70%;
+	height: 90px;
+}
+#cart .cartFinish {
+	width: 25%;
+	height: 300px;
+	padding: 15px;
+	display: flex;
+	margin-top: 12px;
+	align-self: flex-start;
+	flex-direction: column;
+	justify-content: space-around;
+	box-shadow: 0px 0px 8px 0px #000000bd;
+}
+#cart .cartFinish .finishButton {
+	align-self: center;
+	width: 140px;
+	background-color: #ca895f;
+	text-align: center;
+	padding: 12px;
+	color: white;
+	border-radius: 4px;
+	cursor: pointer;
 }

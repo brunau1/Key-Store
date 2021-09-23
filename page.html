@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>KEY STORE</title>
-  </head>
-  <body>
-    <nav>
-      <a id="home" onclick="loadPage('home')">
-        <img src="images/design/key.png" alt="logo" />
-      </a>
-      <div class="search">
-        <input type="text" name="search" id="search" />
-        <a class="button"><img src="images/design/search.png" alt="" /></a>
-      </div>
-      <div class="services">
-        <a id="cart">
-          <img class="icon" src="images/design/cart.png" alt="logo" />
-        </a>
-        <a id="support">
-          <img class="icon" src="images/design/phone.png" alt="logo" />
-        </a>
-      </div>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>KEY STORE</title>
+	</head>
+	<body>
+		<nav>
+			<a id="home" onclick="loadPage('home')">
+				<img src="images/design/key.png" alt="logo" />
+			</a>
+			<div class="search">
+				<input type="text" name="search" id="search" />
+				<a class="button"><img src="images/design/search.png" alt="" /></a>
+			</div>
+			<div class="services">
+				<a onclick="loadPage('cart')" id="cartIcon">
+					<img class="icon" src="images/design/cart.png" alt="logo" />
+				</a>
+				<a id="supportIcon">
+					<img class="icon" src="images/design/phone.png" alt="logo" />
+				</a>
+			</div>
+		</nav>
 
-    <div id="content">
-      <div id="itemDetail">
-        <div class="itemDetailPanel">
-          <img class="productImage" src="images/products/1.jpg" alt="" />
-          <div class="detail">
-            <p><b>Nome do produto</b></p>
-            <p>Descrição do produto</p>
-            <p style="font-size: 12px">Preço: R$</p>
-            <a class="addToCartButton" onclick="addProductToCart(1)">Comprar</a>
-          </div>
-        </div>
-      </div>
-    </div>
+		<div id="content"></div>
 
-    <footer>
-      <a><img src="images/design/key.png" alt="logo" /></a>
-      <span>All rights reserved</span>
-    </footer>
-  </body>
-  <script src="controller.js"></script>
+		<footer>
+			<a onclick="loadPage('home')"
+				><img src="images/design/key.png" alt="logo"
+			/></a>
+			<span>All rights reserved</span>
+		</footer>
+	</body>
+	<script src="controller.js"></script>
 </html>
