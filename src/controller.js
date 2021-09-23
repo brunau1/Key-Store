@@ -131,7 +131,6 @@ function addProductToCart(id) {
 	if (lastOfCart != -1)
 		cart.push({ product: products[productIndex], id: ++lastOfCart });
 	else cart.push({ product: products[productIndex], id: 0 });
-	console.log(cart);
 	alert('Produto adicionado ao carrinho.');
 }
 
