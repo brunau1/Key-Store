@@ -2,10 +2,12 @@
 
 Simple web site for college test
 
-How to RUN
+How to RUN:
+
+Copy and paste the following command in your console
 
 ```
 $ npm i && node index.js
 ```
 
-Caso esteja acessando o projeto no replit, para executar o programa, basta clicar no botão RUN e recarregar a página do browser.
+Enjoy =)
