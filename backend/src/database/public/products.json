@@ -1,0 +1,74 @@
+[
+	{
+		"id": 1,
+		"name": "Flower key",
+		"category": "cute",
+		"description": "Chave com formato de flor, na cor dourado. Acompanha fechadura.",
+		"image": "1.jpg",
+		"price": 5.99,
+		"quantity": 50
+	},
+	{
+		"id": 2,
+		"name": "Latoya kantrele key",
+		"category": "medieval",
+		"description": "Chave artesanal. Detalhes em bronze. Acompanha fechadura.",
+		"image": "2.jpg",
+		"price": 49.99,
+		"quantity": 50
+	},
+	{
+		"id": 3,
+		"name": "Conjunto horse, bomb & men.",
+		"category": "kit",
+		"description": "Três chaves com formatos diferentes em aço inox. Acompanha fechadura.",
+		"image": "3.jpg",
+		"price": 39.9,
+		"quantity": 50
+	},
+	{
+		"id": 4,
+		"name": "Conjunto medieval keys",
+		"category": "kit, medieval",
+		"description": "Três chaves com formatos diferentes em bronze. Acompanha fechadura.",
+		"image": "4.jpg",
+		"price": 59.99,
+		"quantity": 50
+	},
+	{
+		"id": 5,
+		"name": "Templars order key",
+		"category": "fantasy",
+		"description": "Chave com símbolo da ordem dos templários, na cor azul e prata. Acompanha fechadura.",
+		"image": "5.jpg",
+		"price": 9.99,
+		"quantity": 50
+	},
+	{
+		"id": 6,
+		"name": "Axe key",
+		"category": "fantasy",
+		"description": "Chave com formato de machado, na cor dourado e prata, com detalhes e metal. Acompanha fechadura.",
+		"image": "6.jpg",
+		"price": 14.9,
+		"quantity": 50
+	},
+	{
+		"id": 7,
+		"name": "Heart key",
+		"category": "love",
+		"description": "Chave e cadeado com formato de coração.",
+		"image": "7.jpg",
+		"price": 29.9,
+		"quantity": 50
+	},
+	{
+		"id": 8,
+		"name": "Red love",
+		"category": "love",
+		"description": "Chave comum com cadeado vermelho em formato de coração.",
+		"image": "8.jpg",
+		"price": 11.99,
+		"quantity": 50
+	}
+]
