@@ -11,9 +11,20 @@ class ProductsController {
 		res.status(200).send({ product });
 	}
 	create(req, res) {
-		const { name, price, quantity } = req.body;
-		const product = Storage.create('products', { name, price, quantity });
-		res.status(200).send({ product });
+		const payload = req.body;
+		Storage.create('products', payload);
+		res.status(201).send('created');
+	}
+	update(req, res) {
+		const { id } = req.params;
+		const payload = req.body;
+		Storage.update('products', { id, ...payload });
+		res.status(201).send('ok');
+	}
+	delete(req, res) {
+		const { id } = req.params;
+		Storage.delete('products', id);
+		res.status(200).send('deleted');
 	}
 }
 module.exports = new ProductsController();
