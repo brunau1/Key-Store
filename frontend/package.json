@@ -17,6 +17,7 @@
 	},
 	"homepage": "https://github.com/brunau1/Key-Store#readme",
 	"dependencies": {
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"rollup": "^2.60.0"
 	}
 }

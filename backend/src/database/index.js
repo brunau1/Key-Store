@@ -1,10 +1,13 @@
 const uuid = require('uuid');
 const fs = require('fs');
 
-class Storage {
-	static find(collection, prop = null, value = null) {
-		const data = require(`${collection}.json`);
-		return prop ? data.filter((item) => item[prop] == value)[0] : data;
+class Database {
+	static find(collection, option = {}, idList = []) {
+		const data = require(`./public/${collection}.json`);
+		const [key] = Object.keys(option) || '';
+		if (key) return data.filter((item) => item[key] == option[key]);
+		if (idList.length) return data.filter((item) => idList.includes(item.id));
+		return data;
 	}
 	static create(collection, newData) {
 		const data = require(`${collection}.json`);
@@ -28,4 +31,4 @@ class Storage {
 	}
 }
 
-module.exports = Storage;
+module.exports = Database;

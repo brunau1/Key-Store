@@ -1,1 +1,10 @@
-[]
+[
+	{
+		"id": "uuid",
+		"userId": "uuid",
+		"products": [
+			{ "id": "uuid", "qtd": 1 },
+			{ "id": "uuid", "qtd": 1 }
+		]
+	}
+]
