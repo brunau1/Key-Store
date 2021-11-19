@@ -7,7 +7,8 @@ How to RUN:
 Copy and paste the following command in your console
 
 ```
-$ npm i && node index.js
+$ npm install
+$ node index.js
 ```
 
 Enjoy =)

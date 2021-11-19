@@ -7,7 +7,8 @@ How to RUN:
 Copy and paste the following command in your console
 
 ```
-$ npm i && npm run start
+$ npm install
+$ npm run start
 ```
 
 Enjoy =)
