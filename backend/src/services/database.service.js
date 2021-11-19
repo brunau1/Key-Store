@@ -10,7 +10,7 @@ class DatabaseService {
 				list: () =>
 					props.array.filter((item) => props.idList.includes(item.id)),
 			};
-			if (method.condition) return types[method.type]();
+			if (method.condition) return await types[method.type]();
 			if (index == handleList.length - 1) return props.array;
 		}
 	}

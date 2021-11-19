@@ -6,7 +6,7 @@ class Database {
 	static async find(collection, option = {}, idList = []) {
 		const data = require(`./public/${collection}.json`);
 		const [key] = Object.keys(option) || '';
-		return DatabaseService.handler([
+		return await DatabaseService.handler([
 			{
 				method: { condition: !!key, type: 'key_value' },
 				props: { array: data, key: key, option: option },
