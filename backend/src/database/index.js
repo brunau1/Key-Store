@@ -1,33 +1,41 @@
 const uuid = require('uuid');
 const fs = require('fs');
+const DatabaseService = require('../services/database.service');
 
 class Database {
-	static find(collection, option = {}, idList = []) {
+	static async find(collection, option = {}, idList = []) {
 		const data = require(`./public/${collection}.json`);
 		const [key] = Object.keys(option) || '';
-		if (key) return data.filter((item) => item[key] == option[key]);
-		if (idList.length) return data.filter((item) => idList.includes(item.id));
-		return data;
+		return DatabaseService.handler([
+			{
+				method: { condition: !!key, type: 'key_value' },
+				props: { array: data, key: key, option: option },
+			},
+			{
+				method: { condition: idList.length, type: 'list' },
+				props: { array: data, idList },
+			},
+		]);
 	}
-	static create(collection, newData) {
+	static async create(collection, newData) {
 		const data = require(`${collection}.json`);
 		newData.id = uuid.v4();
 		data.push(newData);
-		fs.writeFileSync(`./public/${collection}.json`, data);
+		await fs.writeFile(`./public/${collection}.json`, data);
 	}
-	static update(collection, newData) {
+	static async update(collection, newData) {
 		const data = require(`${collection}.json`);
 		const pos = data.map((x) => x.id).indexOf(newData.id);
 		if (pos != -1) data[pos] = newData;
-		fs.writeFileSync(`./public/${collection}.json`, data);
+		await fs.writeFile(`./public/${collection}.json`, data);
 	}
-	static delete(collection, id) {
+	static async delete(collection, id) {
 		const data = require(`${collection}.json`);
 		data = data.filter((item) => item.id != id);
-		fs.writeFileSync(`./public/${collection}.json`, data);
+		await fs.writeFile(`./public/${collection}.json`, data);
 	}
-	static createCollection(collection) {
-		fs.writeFileSync(`./public/${collection}.json`, []);
+	static async createCollection(collection) {
+		await fs.writeFile(`./public/${collection}.json`, []);
 	}
 }
 

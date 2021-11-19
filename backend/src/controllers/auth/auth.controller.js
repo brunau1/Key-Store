@@ -4,17 +4,17 @@ class AuthController {
 	async login(req, res) {
 		try {
 			const { email, password } = req.body;
-			AuthService.login({ email, password }, errors);
+			await AuthService.login({ email, password }, errors);
 			return res.status(201).send('ok');
 		} catch (error) {
 			return res.status(error.status).send(error.message);
 		}
 	}
-	logout(req, res) {
+	async logout(req, res) {
 		const { id } = req.body;
-		AuthService.logout(id);
+		await AuthService.logout(id);
 	}
-	signup(req, res) {
+	async signup(req, res) {
 		try {
 			const { name, email, password } = req.body;
 			const errors = {
@@ -22,7 +22,7 @@ class AuthController {
 				email: [400, 'Missing email'],
 				password: [400, 'Missing password'],
 			};
-			AuthService.register({ name, email, password }, errors);
+			await AuthService.register({ name, email, password }, errors);
 			return res.status(201).send('ok');
 		} catch (error) {
 			return res.status(error.status).send(error.message);

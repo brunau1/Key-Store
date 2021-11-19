@@ -1,29 +1,29 @@
 const Database = require('../../database/index');
 
 class ProductsController {
-	get(req, res) {
-		const products = Database.find('products');
+	async get(req, res) {
+		const products = await Database.find('products');
 		res.status(200).send({ products });
 	}
-	getById(req, res) {
+	async getById(req, res) {
 		const { id } = req.params;
-		const product = Database.find('products', { id });
+		const product = await Database.find('products', { id });
 		res.status(200).send({ product });
 	}
-	create(req, res) {
+	async create(req, res) {
 		const payload = req.body;
-		Database.create('products', payload);
+		await Database.create('products', payload);
 		res.status(201).send('created');
 	}
-	update(req, res) {
+	async update(req, res) {
 		const { id } = req.params;
 		const payload = req.body;
-		Database.update('products', { id, ...payload });
+		await Database.update('products', { id, ...payload });
 		res.status(201).send('ok');
 	}
-	delete(req, res) {
+	async delete(req, res) {
 		const { id } = req.params;
-		Database.delete('products', id);
+		await Database.delete('products', id);
 		res.status(200).send('deleted');
 	}
 }

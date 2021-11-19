@@ -3,8 +3,8 @@
 		"id": "uuid",
 		"userId": "uuid",
 		"products": [
-			{ "id": "uuid", "qtd": 1 },
-			{ "id": "uuid", "qtd": 1 }
+			{ "id": 1, "quantity": 1 },
+			{ "id": 2, "quantity": 1 }
 		]
 	}
 ]

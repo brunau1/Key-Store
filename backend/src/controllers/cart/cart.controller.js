@@ -1,14 +1,22 @@
+const CartService = require('../../services/cart.service');
+
 class CartController {
-	addToCart(product) {
-		this.cartService.addToCart(product);
+	async get(req, res) {
+		const { userId } = req.params;
+		console.log('user:', userId);
+		const cart = await CartService.getTotal(userId);
+		res.status(200).send(cart);
+	}
+	async create(req, res) {
+		const { userId, productId, quantity } = req.body;
+		await CartService.addToCart(userId, productId, quantity);
+		res.status(201).send('created');
 	}
 
-	removeFromCart(product) {
-		this.cartService.removeFromCart(product);
-	}
-
-	checkout() {
-		this.$state.go('checkout');
+	async delete(req, res) {
+		const { userId, productId } = req.params;
+		await CartService.removeFromCart(userId, productId);
+		res.status(201).send('deleted');
 	}
 }
 

@@ -8,6 +8,6 @@ module.exports = {
 		router.post('/', controller.create);
 		router.put('/:id', controller.update);
 		router.delete('/:id', controller.delete);
-		server.use('/user', router);
+		server.use('/users', router);
 	},
 };
